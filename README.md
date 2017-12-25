@@ -1,6 +1,6 @@
 
 ## usersテーブル
-|Colum|Type|Options|
+|Column|Type|Options|
 |-----|----|-------|
 |name|string|add_index, unique: true, null:false,|
 |email|string|null:false|
@@ -28,7 +28,7 @@
 |----|----|------|
 |name|string|null:false|
 
-- has_many: users
+- has_many: users, through: members
 - has_many: messages
 - has_many: members
 
