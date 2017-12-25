@@ -6,6 +6,9 @@
 |email|string|null:false|
 
 ### Association
+- has_many :groups, through: members
+- has_many :messages
+- has_many :members
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -17,12 +20,17 @@
 |time|integer|integer|null: false|
 
 ### Association
+- belongs_to :user
+- belongs_to :group
 
 ## groupsテーブル
 |Column|Type|Options|
 |----|----|------|
 |name|string|null:false|
 
+- has_many: users
+- has_many: messages
+- has_many: members
 
 
 ## membersテーブル
