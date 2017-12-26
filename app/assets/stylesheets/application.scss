@@ -1,10 +1,45 @@
 @import "./reset";
 
-   notification{
-  p{color: white;
-  	text-align: center;
-  	background: #38AEF0;
+   .notification{
+ 		p{
+	  	color: white;
+	  	text-align: center;
+	  	background: #38AEF0;
 
-   }
-
+		 }
 }
+
+
+.chat-side{
+	height: 100%;
+	width: 300px;
+	background: #2f3e51;
+	float: left;
+	position: absolute;
+	.chat-side__user{
+           height: 15%;
+           width: 100%;
+           background: #253141;
+		p{
+	       font-size: 16px;
+	       color: #FFFFFF;
+	       font-weight: bold;
+	       line-height: 100px;
+	       padding-left: 20px;
+		}
+	}
+     .chat-side__groups{
+         padding: 20px 0 0 20px;
+         h1{
+          font-size: 15px;
+          color: #FFFFFF;
+
+         }
+         h2{
+         	font-size: 11px;
+         	color: #FFFFFF;
+         	margin: 5px 0 0 0;
+         }
+     }
+}
+
