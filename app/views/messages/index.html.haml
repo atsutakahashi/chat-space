@@ -9,4 +9,14 @@
     %h2 まだメッセージはありません
 
 .chat-main
-
+  .chat-main__header
+    %h3 sampleグループ
+    %h4 member
+  .chat-main__body
+    %span.username name
+    %span 2017/12/26
+    %h6 text
+  .chat-main__footer
+    .chat-main__footer-body
+      = form_tag do
+        = text_field_tag :text
