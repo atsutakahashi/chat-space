@@ -3,13 +3,20 @@
 
 .chat-side
   .chat-side__user
-    %p name
+    .chat-side__user-content
+      .chat-side__user-name name
+      = link_to do
+        %i.fa.fa-pencil-square-o
+      = link_to do
+        %i.fa.fa-cog
   .chat-side__groups
     %h1 groups
     %h2 まだメッセージはありません
 
 .chat-main
   .chat-main__header
+    .chat-main__header--group-edit-btn
+      = button_tag "Edit"
     %h3 sampleグループ
     %h4 member
   .chat-main__body
@@ -18,5 +25,7 @@
     %h6 text
   .chat-main__footer
     .chat-main__footer-body
-      = form_tag do
-        = text_field_tag :text
+      %form.form
+        %input.text{placeholder: "type a message"}
+        %i.fa.fa-picture-o
+        = button_tag "Send"
