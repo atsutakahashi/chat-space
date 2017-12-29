@@ -34,7 +34,8 @@ html, body {
          margin-right:100px;
          display: inline;
 		}
-      a{
+
+      i{
         color:#FFFFFF;
         margin-right:5px;
   }
@@ -42,19 +43,19 @@ html, body {
 
      .chat-side__groups{
        padding: 20px 0 0 20px;
-         h1{
-           font-size: 15px;
-           color: #FFFFFF;
 
-            }
-         h2{
+         .chat-side__groups-name{
+           font-size: 15px;
+           color: #FFFFFF;}
+
+
+         .chat-side__groups-massege{
            font-size: 11px;
            color: #FFFFFF;
            margin: 5px 0 0 0;
       }
    }
 }
-
 
 .chat-main{
   height: 100%;
@@ -64,13 +65,17 @@ html, body {
     .chat-main__header{
 	  height:15%;
 	  border: solid 1px #eeeeee;
-	    h3{
+
+	    .chat-main__header-group-name{
+
 		  font-size: 20px;
 		  color: #333333;
 		  padding-left: 40px;
 		  line-height: 65px;
 		}
-		h4{
+
+		  .chat-main__header-group-member{
+
 		  font-size:12px;
 		  color: #999999;
 		  padding:5px 0 0 40px;
@@ -97,11 +102,13 @@ html, body {
 	    color: #434A54;
 	    padding-right: 10px;
         }
-	    span{
+
+	    .time{
 	    	font-size:12px;
 	    	color: #999999;
 	 }
-	    h6{
+	    .chat-main__message-body{
+
 	    	font-size:14px;
 	    	color: #434A54;
 
@@ -127,7 +134,11 @@ html, body {
           background: #38AEF0;
           padding: 20px 20px;
           margin-left: 20px;
+
   }
+}
+
+}
 }
 
 
