@@ -35,3 +35,4 @@
             %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
             %input{type: "file", id:"file_image", style: "display:none;"}
             = button_tag "Send"
+            
