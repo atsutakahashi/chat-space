@@ -1,7 +1,6 @@
 html, body {
   height: 100%;
 }
-
 .chat-side{
   height: 100%;
   width: 300px;
@@ -100,15 +99,15 @@ html, body {
   .chat-main__footer{
     height: 102px;
     background: $footer-gray;
-    padding:0 40px;
     .form{
-      padding-top:20px;
+      padding: 20px 40px 0 0;
       .field {
         box-sizing:border-box;
         width:calc(100% - 70px - 15px);
         float:left;
         margin-right: 15px;
         position:relative;
+        padding-left: 40px;
         .text{
           box-sizing:border-box;
           width:100%;
@@ -132,4 +131,5 @@ html, body {
     }
   }
 }
+
 
