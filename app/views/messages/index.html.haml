@@ -15,7 +15,7 @@
 
 .chat-main
   .chat-main__header
-    .chat-main__header--group-edit-btn
+    .chat-main__header-group-edit-btn
       = button_tag "Edit"
 
     .chat-main__header-group-name sampleグループ
@@ -30,9 +30,9 @@
   .chat-main__footer
     .chat-main__footer-body
       %form.form
-        %input.text{placeholder: "type a message"}
+        .field
+          %input.text{placeholder: "type a message"}
           %label{for: "file_image"}
-            %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
+          %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
             %input{type: "file", id:"file_image", style: "display:none;"}
-            = button_tag "Send"
-            
+        = button_tag "Send"
