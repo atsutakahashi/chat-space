@@ -3,8 +3,8 @@
 
 .chat-side
   .chat-side__user
-    .chat-side__user-content
-      .chat-side__user-name name
+    .chat-side__user-name
+      %span name
       = link_to do
         %i.fa.fa-pencil-square-o
       = link_to do
@@ -15,12 +15,12 @@
 
 .chat-main
   .chat-main__header
-    .chat-main__header--group-edit-btn
+    .chat-main__header-group-edit-btn
       = button_tag "Edit"
 
     .chat-main__header-group-name sampleグループ
     .chat-main__header-group-member member
-    
+
   .chat-main__body
     .chat-main__message
       %span.username name
@@ -30,8 +30,9 @@
   .chat-main__footer
     .chat-main__footer-body
       %form.form
-        %input.text{placeholder: "type a message"}
+        .field
+          %input.text{placeholder: "type a message"}
           %label{for: "file_image"}
-            %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
+          %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
             %input{type: "file", id:"file_image", style: "display:none;"}
-            = button_tag "Send"
+        = button_tag "Send"
