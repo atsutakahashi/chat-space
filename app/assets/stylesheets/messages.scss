@@ -2,16 +2,6 @@ html, body {
   height: 100%;
 }
 
-.notification{
-  p{
-    color: $white;
-    text-align: center;
-    background: $light-blue;
-
-  }
-}
-
-
 .chat-side{
   height: 100%;
   width: 300px;
@@ -110,8 +100,6 @@ html, body {
   .chat-main__footer{
     height: 102px;
     background: $footer-gray;
-    padding-left: 40px;
-    padding-right: 40px;
     .form{
       padding-top: 20px;
       .field {
@@ -120,6 +108,7 @@ html, body {
         float:left;
         margin-right: 15px;
         position:relative;
+        padding-left: 40px;
         .text{
           box-sizing:border-box;
           width:100%;
@@ -143,4 +132,3 @@ html, body {
     }
   }
 }
-
