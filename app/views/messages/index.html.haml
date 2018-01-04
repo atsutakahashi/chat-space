@@ -3,8 +3,8 @@
 
 .chat-side
   .chat-side__user
-    .chat-side__user-content
-      .chat-side__user-name name
+    .chat-side__user-name
+      %span name
       = link_to do
         %i.fa.fa-pencil-square-o
       = link_to do
@@ -20,7 +20,7 @@
 
     .chat-main__header-group-name sampleグループ
     .chat-main__header-group-member member
-    
+
   .chat-main__body
     .chat-main__message
       %span.username name

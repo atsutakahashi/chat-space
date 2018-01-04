@@ -1,3 +1,134 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;}
+
+.notification{
+  p{
+    color: $white;
+    text-align: center;
+    background: $light-blue;
+
+    }
+}
+
+
+.chat-side{
+  height: 100%;
+  width: 300px;
+  background: $side-light-blue;
+  position: absolute;
+    .chat-side__user{
+      height: 15%;
+      width: 100%;
+      background: $side-dark-blue;
+      .chat-side__user-name{
+         font-size: 16px;
+         color: $white;
+         font-weight: bold;
+         line-height: 65px;
+         padding-left: 20px;
+    }
+
+      i{
+        color: $white;
+        margin-right:5px;
+        float:right;
+        padding-top: 25px;
+  }
+}
+
+     .chat-side__groups{
+       padding: 20px 0 0 20px;
+
+         .chat-side__groups-name{
+           font-size: 15px;
+           color: $white;}
+
+
+         .chat-side__groups-massege{
+           font-size: 11px;
+           color: $white;
+           margin: 5px 0 0 0;
+      }
+   }
+}
+
+.chat-main{
+  height: 100%;
+  width: calc(100% - 300px);
+  border: #eeeeee;
+  float: right;
+    .chat-main__header{
+    height:15%;
+    border: solid 1px #eeeeee;
+
+      .chat-main__header-group-name{
+
+      font-size: 20px;
+      color: $gray;
+      padding-left: 40px;
+      line-height: 65px;
+    }
+
+      .chat-main__header-group-member{
+
+      font-size:12px;
+      color: $light-gray;
+      padding:5px 0 0 40px;
+    }
+    .chat-main__header--group-edit-btn{
+           float: right;
+           color: $light-blue;
+           padding: 28px 40px 0 0;
+           button {
+          padding: 20px;
+          color: $light-blue;
+
+      }
+    }
+  }
+}
+
+  .chat-main__body{
+    height: calc(100% - 30%);
+    padding: 20px 0 0 40px;
+    .username{
+      font-size:16px;
+      font-weight: bold;
+      color: $black;
+      padding-right: 10px;
+        }
+
+      .time{
+        font-size:12px;
+        color: $light-gray;
+   }
+      .chat-main__message-body{
+
+        font-size:14px;
+        color: $black
+
+  }
+}
+
+
+    .chat-main__footer{
+      height: 102px;
+      background: $footer-gray;
+      padding-left: 40px;
+        .form{
+      .text{
+        width:85%;
+        height: 50px;
+        font-size: 16px;
+        color: #434A54;
+        margin-top: 20px;
+        display: inline;
+      }
+        }
+        button{
+          background: $light-blue;
+          padding: 20px 20px;
+          margin-left: 20px;
+
+  }
+}
