@@ -1,0 +1,23 @@
+.chat-main
+  .chat-main__header
+    .chat-main__header-group-edit-btn
+      = button_tag "Edit"
+
+    .chat-main__header-group-name sampleグループ
+    .chat-main__header-group-member member
+
+  .chat-main__body
+    .chat-main__message
+      %span.username name
+      %span.time 2017/12/26
+      .chat-main__message-body text
+
+  .chat-main__footer
+    .chat-main__footer-body
+      %form.form
+        .field
+          %input.text{placeholder: "type a message"}
+          %label{for: "file_image"}
+            %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
+            %input{type: "file", id:"file_image", style: "display:none;"}
+        = button_tag "Send"

@@ -1,11 +1,15 @@
+html, body{
+  height: 100%;
+}
 .side-bar {
-  box-sizing: border-box;
+  height: 100%;
   color: $white;
   width: 300px;
+  position: absolute;
   .header {
     background-color: $side_dark-blue;
-    height: 100px;
-    line-height: 100px;
+    height: 15%;
+    line-height: 110px;
     padding: 0 20px;
     &__name {
       display: inline-block;
