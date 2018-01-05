@@ -1,30 +1,44 @@
 class GroupsController < ApplicationController
-  def index
-  end
+	before_action :set_group, only: [:edit, :update]
 
-  def new
-    @group = Group.new
-    @group.users << current_user
-  end
+	def index
+	end
 
-  def create
-    @group = Group.new(group_params)
-    if @group.save
-      redirect_to root_path, notice: 'グループを作成しました'
-    else
-      render :new
-    end
-  end
+	def new
+		@group = Group.new
+		@group.users << current_user
+	end
 
-  def edit
-  end
+	def create
+		@group = Group.new(group_params)
+		if @group.save
+			redirect_to root_path, notice: 'グループを作成しました'
+		else
+			render :new
+		end
+	end
 
-  def update
-  end
+	def edit
+	end
 
-  private
+	def update
+		if @group.update(group_params)
+			redirect_to group_messages_path(@group), notice: 'グループを編集しました'
+		else
+			flash.now[:alert] = 'グループを編集できませんでした'
+			render :edit
+		end
+	end
 
-  def group_params
-    params.require(:group).permit(:name, { :user_ids => [] })
-  end
+	private
+
+	def group_params
+		group = params.require(:group).permit(:name, { :user_ids => [] })
+		group[:user_ids] << current_user.id.to_s
+		return group
+	end
+
+	def set_group
+		@group = Group.find(params[:id])
+	end
 end

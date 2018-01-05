@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
 
-  def index
-  end
+	def index
+		@group = Group.find(params[:group_id])
+		@members = @group.users
+	end
 
-  def create
-  end
+	def create
+	end
 end
