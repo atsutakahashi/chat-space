@@ -17,7 +17,7 @@
         %span.username
           = message.user.name
         %span.time
-          = message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+          = message.created_at.to_s(:default)
         .chat-main__message-body
           - if message.body.present? && message.image.present?
             = message.body
