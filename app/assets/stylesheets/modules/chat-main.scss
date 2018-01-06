@@ -65,10 +65,10 @@ html, body{
       .field {
         box-sizing:border-box;
         width:calc(100% - 110px - 15px);
-        float:left;
         margin-right: 15px;
         position:relative;
         padding-left: 40px;
+        float:left;
         .text{
           box-sizing:border-box;
           width:100%;
@@ -82,11 +82,12 @@ html, body{
           top: 20px;
         }
       }
-      button{
+      input[type="submit"]{
         box-sizing:border-box;
         width: 70px;
         background: $light-blue;
-        padding: 20px 20px;
+        padding: 20px 0;
+        text-align: center;
         float:left;
       }
     }

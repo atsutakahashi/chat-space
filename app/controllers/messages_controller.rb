@@ -8,11 +8,16 @@ class MessagesController < ApplicationController
 
   def create
     @messages = @group.messages.new(messages_params)
+      if @messages.save
+        redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+      else
+        render :index
+      end
   end
 
   private
   def messages_params
-    params.require(:messages).permit(:body, :image).merge(user_id: current_user.id)
+    params.require(:message).permit(:body, :image).merge(user_id: current_user.id)
   end
 
   def set_group
