@@ -8,21 +8,38 @@
       = @group.name
     .chat-main__header-group-member
       Members:
-      - @members.each do |member|
+      - @group.users.each do |member|
         %span= member.name
 
   .chat-main__body
     .chat-main__message
-      %span.username name
-      %span.time 2017/12/26
-      .chat-main__message-body text
+      - @messages.each do |message|
+        %span.username
+          = message.user.name
+        %span.time
+          = message.created_at.to_s(:default)
+        .chat-main__message-body
+          - if message.body.present? && message.image.present?
+            = message.body
+            = image_tag message.image.to_s
+          - elsif message.image.present?
+            = image_tag message.image.to_s
+          - else
+            = message.body
 
   .chat-main__footer
     .chat-main__footer-body
-      %form.form
-        .field
-          %input.text{placeholder: "type a message"}
-          %label{for: "file_image"}
-            %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
-            %input{type: "file", id:"file_image", style: "display:none;"}
-        = button_tag "Send"
+      .form
+        = form_for [@group, @message] do |f|
+          .field
+            = f.text_field :body, class: 'text', placeholder: 'type a message'
+            = f.label :image do
+              = fa_icon 'picture-o'
+              = f.file_field :image
+          = f.submit 'Send'
+        /   %input.text{placeholder: "type a message"}
+        /   %label{for: "file_image"}
+        /     %i.fa.fa-picture-o{id: "file", style: "cursor:pointer"}
+        /     %input{type: "file", id:"file_image", style: "display:none;"}
+        /   %div.button
+        /     = button_tag "Send"
