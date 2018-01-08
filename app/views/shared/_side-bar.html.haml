@@ -16,4 +16,9 @@
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません。
+            - if group.messages.pluck(:body).last.present?
+              = group.messages.pluck(:body).last
+            - elsif group.messages.pluck(:image).last.present?
+              画像が投稿されています
+            - else
+              まだメッセージはありません
