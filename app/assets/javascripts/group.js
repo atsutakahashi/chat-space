@@ -19,7 +19,7 @@ $(function() {
   }
 
   function appendMember(user_name, user_id) {
-    var html = `<div class='chat-group-user clearfix' id='chat-group-user-8'>
+    var html = `<div class='chat-group-user clearfix' id='${ user_id }'>
                   <input name='group[user_ids][]' type='hidden' value='${ user_id }'>
                   <p class='chat-group-user__name'>${ user_name }</p>
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
@@ -36,34 +36,34 @@ $(function() {
         dataType: 'json'
       })
 
-  .done(function(users) {
-    $(".user_search_result").empty();
-    if (input.length !== 0) {
-      users.forEach(function(user) {
-      appendUser(user);
+    .done(function(users) {
+      $(".user_search_result").empty();
+      if (input.length !== 0) {
+        users.forEach(function(user) {
+        appendUser(user);
         });
       }
 
-      else {
-        appendNoUser();
-    }
-  })
+        else {
+          appendNoUser();
+        }
+    })
 
-  .fail(function() {
-    alert('ユーザー検索に失敗しました');
+    .fail(function() {
+      alert('ユーザー検索に失敗しました');
     });
   });
 
-    $(".user_search_result").on('click', ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
+  $(".user_search_result").on('click', ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function(){
     $(this).parent().remove();
     var user_name = $(this).data("user-name")
     var user_id = $(this).data("user-id")
     appendMember(user_name, user_id);
-    });
+  });
 
-    $(".chat-group-users").on('click', ".user-search-remove", function(){
-    var user = $(this).parent();
-    user.remove();
+  $(".chat-group-users").on('click', ".user-search-remove", function(){
+  var user = $(this).parent();
+  user.remove();
   });
 });
 
