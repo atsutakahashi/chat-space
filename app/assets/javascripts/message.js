@@ -1,10 +1,11 @@
+$(document).on('turbolinks:load', function() {
 $(function(){
   function buildHTML(message){
     var addimage = "";
     if (message.image){
       addimage = `<img src="${ message.image }">`;
     }
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id = ${message.id}>
                   <span class="username">
                     ${ message.name }
                   </span>
@@ -18,6 +19,7 @@ $(function(){
                 </div>`
     return html;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -40,5 +42,35 @@ $(function(){
       alert('error');
     })
     return false;
-  })
+  });
+
+  setInterval(function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      if ($('.message').length == 0){
+      var last_message_id = 0;
+      }
+      else{
+      var last_message_id = $('.message').last().data('message-id');
+      }
+
+      $.ajax({
+        url: location.href,
+        data: {id: last_message_id},
+        dataType: 'json',
+      })
+
+      .done(function(data){
+        var messages = data.messages;
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+            $('.chat-main__message').append(html);
+        });
+      })
+
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      })
+    }
+  }, 5000);
+});
 });

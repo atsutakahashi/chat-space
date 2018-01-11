@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function() {
   var search_list = $(".user_search_result");
   var member_list = $(".chat-group-users")
@@ -66,4 +67,6 @@ $(function() {
   user.remove();
   });
 });
+});
+
 

@@ -14,18 +14,19 @@
   .chat-main__body
     .chat-main__message
       - @messages.each do |message|
-        %span.username
-          = message.user.name
-        %span.time
-          = message.created_at.to_s(:default)
-        .chat-main__message-body
-          - if message.body.present? && message.image.present?
-            = message.body
-            = image_tag message.image.to_s
-          - elsif message.image.present?
-            = image_tag message.image.to_s
-          - else
-            = message.body
+        .message{ "data-message-id": "#{message.id}"}
+          %span.username
+            = message.user.name
+          %span.time
+            = message.created_at.to_s(:default)
+          .chat-main__message-body
+            - if message.body.present? && message.image.present?
+              = message.body
+              = image_tag message.image.to_s
+            - elsif message.image.present?
+              = image_tag message.image.to_s
+            - else
+              = message.body
 
   .chat-main__footer
     .chat-main__footer-body

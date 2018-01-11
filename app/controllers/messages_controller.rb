@@ -4,7 +4,15 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
+
+     #ajaxで必要な変数
+    @new_messages = @group.messages.where("(id > ?) AND (group_id = ?)", params[:id], params[:group_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
+
 
   def create
     @message = Message.new(messages_params)
