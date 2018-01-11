@@ -45,30 +45,32 @@ $(function(){
   });
 
   setInterval(function(){
-    if ($('.message').length == 0){
-    var last_message_id = 0;
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      if ($('.message').length == 0){
+      var last_message_id = 0;
+      }
+      else{
+      var last_message_id = $('.message').last().data('message-id');
+      }
+
+      $.ajax({
+        url: location.href,
+        data: {id: last_message_id},
+        dataType: 'json',
+      })
+
+      .done(function(data){
+        var messages = data.messages;
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+            $('.chat-main__message').append(html);
+        });
+      })
+
+      .fail(function(){
+        alert('自動更新に失敗しました');
+      })
     }
-    else{
-    var last_message_id = $('.message').last().data('message-id');
-    }
-
-    $.ajax({
-      url: location.href,
-      data: {id: last_message_id},
-      dataType: 'json',
-    })
-
-    .done(function(data){
-      var messages = data.messages;
-      messages.forEach(function(message){
-        var html = buildHTML(message);
-          $('.chat-main__message').append(html);
-      });
-    })
-
-    .fail(function(){
-      alert('自動更新に失敗しました');
-    })
   }, 5000);
 });
 });
