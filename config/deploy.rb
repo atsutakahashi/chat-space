@@ -4,6 +4,11 @@ lock "~> 3.10.1"
 set :application, "chat-space"
 set :repo_url, "git@github.com:atsutakahashi/chat-space.git"
 
+set :default_env, {
+  aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+  aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+set :linked_files, %w{ config/secrets.yml }
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
